@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Main />
+	<van-tabbar v-model="active" class="active">
+	<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
+	<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
+	<van-tabbar-item icon="friends-o"></van-tabbar-item>
+	<van-tabbar-item icon="setting-o"></van-tabbar-item>
+	</van-tabbar>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Main from "@/components/main.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+      return {
+        active: 0,
+      };
+    },
   components: {
-    HelloWorld
+    Main
   }
-}
+};
 </script>
+
+<style>
+	.active{
+		background-image: linear-gradient(#87CEFA, #1E90FF);
+	}
+</style>

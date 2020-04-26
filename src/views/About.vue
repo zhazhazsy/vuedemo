@@ -1,5 +1,57 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <van-cell v-for="item in list" :key="item" :title="item" />
+    </van-list>
+	<van-tabbar v-model="active" class="active">
+	<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
+	<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
+	<van-tabbar-item icon="friends-o"></van-tabbar-item>
+	<van-tabbar-item icon="setting-o"></van-tabbar-item>
+	</van-tabbar>
   </div>
 </template>
+
+<script>
+
+export default {
+  name: "About",
+  data() {
+      return {
+            list: [],
+            loading: false,
+            finished: false,
+          };
+    },
+	methods: {
+	    onLoad() {
+	      // 异步更新数据
+	      // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+	      setTimeout(() => {
+	        for (let i = 0; i < 10; i++) {
+	          this.list.push(this.list.length + 1);
+	        }
+	
+	        // 加载状态结束
+	        this.loading = false;
+	
+	        // 数据全部加载完成
+	        if (this.list.length >= 40) {
+	          this.finished = true;
+	        }
+	      }, 1000);
+	    },
+	  },
+};
+</script>
+
+<style>
+	.active{
+		background-image: linear-gradient(#87CEFA, #1E90FF);
+	}
+</style>
