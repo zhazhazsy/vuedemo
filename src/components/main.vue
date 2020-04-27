@@ -52,7 +52,7 @@
 			//将当前this赋值给ths
 			const ths = this;
 			//请求后端数据
-			this.axios.get('http://localhost:8081/task/task?user='+acode).then(function (res){
+			this.axios.get('http://47.113.112.177:8081/task/task?user='+acode).then(function (res){
 				console.log(res)
 				ths.task = res.data
 			})
