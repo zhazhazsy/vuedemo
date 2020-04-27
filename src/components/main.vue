@@ -18,6 +18,12 @@
 	</div>
 	<div class="body">
 		<van-divider content-position="left">今日任务</van-divider>
+		<van-cell is-link @click="showPopup(it.content)" v-for="it in task">{{it.con}}</van-cell>
+		<van-popup v-model="show" position="bottom" closeable
+		close-icon-position="top-right" :style="{ height: '30%' }">
+		<van-divider>任务详情</van-divider>
+		<br><br>{{thename}}
+		</van-popup>
 	</div>
   </div>
 </template>
@@ -27,14 +33,28 @@
 		name:"user",
 		data(){
 			return{
-				users:[]
+				task:[],
+				show: false,
+				thename : null,
 			}
 		},
+		methods: {
+			//点击任务显示详情
+		    showPopup(name) {
+			  this.thename = name;
+		      this.show = true;
+		    },
+		  },
 		created() {
-			const ths = this
-			this.axios.get('http://localhost:8081/user/user').then(function (res){
+			//获取用户名
+			let aCode = [];
+			let acode = this.$utils.getUrlKey("user");
+			//将当前this赋值给ths
+			const ths = this;
+			//请求后端数据
+			this.axios.get('http://localhost:8081/task/task?user='+acode).then(function (res){
 				console.log(res)
-				ths.users = res.data
+				ths.task = res.data
 			})
 		},
 	}

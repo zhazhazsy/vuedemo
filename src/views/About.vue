@@ -26,6 +26,7 @@ export default {
             list: [],
             loading: false,
             finished: false,
+			active: 1,
           };
     },
 	methods: {
