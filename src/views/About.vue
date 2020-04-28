@@ -8,12 +8,6 @@
     >
       <van-cell v-for="item in list" :key="item" :title="item" />
     </van-list>
-	<van-tabbar v-model="active" class="active">
-	<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
-	<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
-	<van-tabbar-item icon="friends-o"></van-tabbar-item>
-	<van-tabbar-item icon="setting-o"></van-tabbar-item>
-	</van-tabbar>
   </div>
 </template>
 
@@ -26,7 +20,6 @@ export default {
             list: [],
             loading: false,
             finished: false,
-			active: 1,
           };
     },
 	methods: {
@@ -52,7 +45,4 @@ export default {
 </script>
 
 <style>
-	.active{
-		background-image: linear-gradient(#87CEFA, #1E90FF);
-	}
 </style>
