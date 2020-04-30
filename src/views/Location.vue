@@ -51,6 +51,7 @@ export default {
 		active: 5,
 		show: false,
 		message: "",
+		user: "",
 		name: "",
 		value1: "未定位成功",
 		info: "",
@@ -71,12 +72,13 @@ export default {
 		this.axios.get('http://47.113.112.177:8081/user/user?user='+acode).then(function (res){
 			console.log(res)
 			ths.name = res.data.name
+			ths.user = res.data.user
 			ths.value1 = res.data.temp 
 		})
 	},
 	methods: {
 	    clock() {
-		  this.pinfo.user = this.name;
+		  this.pinfo.user = this.user;
 		  this.pinfo.addr = this.value1;
 		  this.pinfo.remarks = this.message;
 		  //将当前this赋值给ths

@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Location from "../views/Location.vue";
 import Clockcomplete from "../components/clockcomplete.vue"
+import contacts from "../views/contacts.vue"
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: "/Clockcomplete",
     name: "Clockcomplete",
     component: Clockcomplete
+  },
+  {
+    path: "/contacts",
+    name: "contacts",
+    component: contacts
   },
   {
 	path: "/location",

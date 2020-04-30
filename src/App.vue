@@ -6,7 +6,7 @@
 		<van-tabbar v-model="active" class="active">
 		<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
 		<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
-		<van-tabbar-item icon="friends-o"></van-tabbar-item>
+		<van-tabbar-item icon="friends-o" to="/contacts"></van-tabbar-item>
 		<van-tabbar-item icon="setting-o"></van-tabbar-item>
 		</van-tabbar>
 	</div>
