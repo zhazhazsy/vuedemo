@@ -18,6 +18,7 @@
 	</div>
 	<div class="body">
 		<van-divider content-position="left">今日任务</van-divider>
+		<van-cell title="今日未被安排任务" v-if="task == undefined || task.length == 0" />
 		<van-cell is-link @click="showPopup(it.content)" v-for="it in task">{{it.con}}</van-cell>
 		<van-popup v-model="show" position="bottom" closeable
 		close-icon-position="top-right" :style="{ height: '30%' }">

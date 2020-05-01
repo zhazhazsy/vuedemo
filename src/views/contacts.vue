@@ -1,27 +1,56 @@
 <template>
 	<div>
-		<van-swipe-cell>
-		  <van-contact-card type="edit" :name="name" :tel="tel" :editable="false" />
+		<form action="#">
+			<van-search
+				v-model="svalue"
+				show-action
+				placeholder="请输入搜索关键词"
+				@search="onSearch"
+				@cancel="onCancel"
+			/>
+		</form>
+		<van-swipe-cell v-for="con in contacts" v-bind:key="con.id">
+		  <van-contact-card type="edit" :name="con.name" :tel="con.phone" :editable="false" />
 		  <template #right>
-		    <van-button square type="danger" class="button1" text="删除" />
-		    <van-button square type="primary" class="button2" text="收藏" />
+		    <van-button square type="info" class="button1" text="信息" />
+		    <van-button square type="primary" class="button2" text="电话" />
 		  </template>
 		</van-swipe-cell>
 	</div>
 </template>
 
 <script>
+	import { Toast } from 'vant';
 	export default {
 		name: "contacts",
 		data() {
 			return {
-				name: "李四",
-				tel: "13200011121"
+				svalue: '',
+				contacts: [],
+				userid: "",
 			}
 		},
+		methods: {
+			onSearch(val) {
+			  const ths = this;
+			  this.axios.get('http://127.0.0.1:8081/user/search?key='+val).then(function (res){
+			  	console.log(res)
+			  	ths.contacts = res.data
+			  })
+			},
+			onCancel() {
+			},
+		  },
 		created() {
-			  this.zhazha.name = this.name;
-			}
+			  this.userid = sessionStorage.getItem("user");
+			  const ths = this;
+			  //请求后端数据
+			  this.axios.get('http://127.0.0.1:8081/user/nome?user='+this.userid).then(function (res){
+			  	console.log(res)
+			  	ths.contacts = res.data
+			  })
+		},
+	
 	}
 	
 </script>

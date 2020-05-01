@@ -3,16 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { Button,Tabbar,TabbarItem,Swipe,SwipeItem,List,Divider,Popup, Cell, CellGroup,Overlay,Field,Dialog,
-DatetimePicker,IndexBar,IndexAnchor,SwipeCell,ContactCard, ContactList, ContactEdit } from 'vant';
+DatetimePicker,IndexBar,IndexAnchor,SwipeCell,ContactCard, ContactList, ContactEdit,Search,NoticeBar,
+ PullRefresh} from 'vant';
 import axios from 'axios';
 import utils from './utils';   //获取url参数
-import moment from 'moment'
+import moment from 'moment';
 
 
 Vue.prototype.$moment = moment
 Vue.prototype.$utils = utils;   //注册全局方法
 Vue.prototype.axios = axios;
 Vue.use(IndexBar);
+Vue.use(PullRefresh);
+Vue.use(Search);
+Vue.use(NoticeBar);
 Vue.use(ContactCard);
 Vue.use(ContactList);
 Vue.use(ContactEdit);

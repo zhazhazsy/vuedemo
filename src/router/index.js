@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Location from "../views/Location.vue";
 import Clockcomplete from "../components/clockcomplete.vue"
 import contacts from "../views/contacts.vue"
+import Setting from "../views/Setting.vue"
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ const routes = [
     path: "/Clockcomplete",
     name: "Clockcomplete",
     component: Clockcomplete
+  },
+  {
+    path: "/Setting",
+    name: "Setting",
+    component: Setting
   },
   {
     path: "/contacts",

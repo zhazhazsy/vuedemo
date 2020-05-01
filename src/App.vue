@@ -7,7 +7,7 @@
 		<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
 		<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
 		<van-tabbar-item icon="friends-o" to="/contacts"></van-tabbar-item>
-		<van-tabbar-item icon="setting-o"></van-tabbar-item>
+		<van-tabbar-item icon="setting-o" to="/Setting"></van-tabbar-item>
 		</van-tabbar>
 	</div>
   </div>
