@@ -38,7 +38,7 @@
 		  this.userid = sessionStorage.getItem("user");
 		  const ths = this;
 		  //请求后端数据
-		  this.axios.get('http://127.0.0.1:8081/user/user?user='+this.userid).then(function (res){
+		  this.axios.get('http://47.113.112.177:8081/user/user?user='+this.userid).then(function (res){
 		  	console.log(res)
 		  	ths.userinfo = res.data
 		  })

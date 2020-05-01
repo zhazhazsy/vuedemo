@@ -33,7 +33,7 @@
 		methods: {
 			onSearch(val) {
 			  const ths = this;
-			  this.axios.get('http://127.0.0.1:8081/user/search?key='+val).then(function (res){
+			  this.axios.get('http://47.113.112.177:8081/user/search?key='+val).then(function (res){
 			  	console.log(res)
 			  	ths.contacts = res.data
 			  })
