@@ -5,6 +5,10 @@ import Location from "../views/Location.vue";
 import Clockcomplete from "../components/clockcomplete.vue"
 import contacts from "../views/contacts.vue"
 import Setting from "../views/Setting.vue"
+import Admin from "../views/Admin.vue"
+import Arrange from "../components/Arrange.vue"
+import Loading from "../components/Loading.vue"
+import AdminError from "../components/AdminError.vue"
 
 Vue.use(VueRouter);
 
@@ -18,6 +22,26 @@ const routes = [
     path: "/Clockcomplete",
     name: "Clockcomplete",
     component: Clockcomplete
+  },
+  {
+    path: "/AdminError",
+    name: "AdminError",
+    component: AdminError
+  },
+  {
+    path: "/Loading",
+    name: "Loading",
+    component: Loading
+  },
+  {
+    path: "/Arrange",
+    name: "Arrange",
+    component: Arrange
+  },
+  {
+    path: "/Admin",
+    name: "Admin",
+    component: Admin
   },
   {
     path: "/Setting",

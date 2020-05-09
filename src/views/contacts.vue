@@ -33,10 +33,14 @@
 		methods: {
 			onSearch(val) {
 			  const ths = this;
-			  this.axios.get('http://47.113.112.177:8081/user/search?key='+val).then(function (res){
-			  	console.log(res)
-			  	ths.contacts = res.data
-			  })
+			  if(val.toString() != ""){
+				  this.axios.get('http://47.113.112.177:8081/user/search?key='+val).then(function (res){
+					console.log(res)
+					ths.contacts = res.data
+				  })
+			  }else{
+				  Toast('输入不能为空');
+			  }
 			},
 			onCancel() {
 			},

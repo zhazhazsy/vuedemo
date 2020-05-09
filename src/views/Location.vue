@@ -32,6 +32,7 @@
 		<br />
 		<van-cell-group>
 		  <van-field
+		    readonly
 		    v-model="value1"
 		    left-icon="location-o"
 		  />
@@ -53,7 +54,7 @@ export default {
 		message: "",
 		user: "",
 		name: "",
-		value1: "未定位成功",
+		value1: "定位失败，请重新定位",
 		info: "",
 		pinfo: {
 			user: null,
@@ -63,18 +64,18 @@ export default {
 	  };
     },
 	created() {
-		//获取用户名
-		let aCode = [];
-		let acode = this.$utils.getUrlKey("user");
 		//将当前this赋值给ths
 		const ths = this;
+		let acode = this.$route.query.name;
 		//请求后端数据
 		this.axios.get('http://47.113.112.177:8081/user/user?user='+acode).then(function (res){
 			console.log(res)
 			ths.name = res.data.name
 			ths.user = res.data.user
-			ths.value1 = res.data.temp 
-		})
+			if(res.data.temp != null && res.data.temp != ""){
+				ths.value1 = res.data.temp
+			}
+		});
 	},
 	methods: {
 	    clock() {
