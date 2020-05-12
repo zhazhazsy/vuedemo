@@ -93,7 +93,7 @@ export default {
 		
 		const ths = this;
 		  //请求后端数据
-		  this.axios.post('http://127.0.0.1:8081/task/insertTask',this.info).then(function (res){
+		  this.axios.post('http://47.113.112.177:8081/task/insertTask',this.info).then(function (res){
 			  alert("安排任务成功");
 			  ths.$router.push({path: '/Viewtasks',query:{user:ths.$route.query.name}});
 		})

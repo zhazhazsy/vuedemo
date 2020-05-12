@@ -71,7 +71,7 @@ export default {
 			return d;
 		},
 		deleteTask(id){
-			this.axios.get('http://127.0.0.1:8081/task/deleteTask?id='+id).then(function (res){
+			this.axios.get('http://47.113.112.177:8081/task/deleteTask?id='+id).then(function (res){
 				if(res.data!=0){
 					alert("删除成功");
 					window.location.reload();
@@ -83,11 +83,11 @@ export default {
 		//将当前this赋值给ths
 		const ths = this;
 		//请求后端数据
-		this.axios.get('http://127.0.0.1:8081/task/selectTasking?user='+this.$route.query.user).then(function (res){
+		this.axios.get('http://47.113.112.177:8081/task/selectTasking?user='+this.$route.query.user).then(function (res){
 			console.log(res)
 			ths.listing = res.data
 		});
-		this.axios.get('http://127.0.0.1:8081/task/selectTasked?user='+this.$route.query.user).then(function (res){
+		this.axios.get('http://47.113.112.177:8081/task/selectTasked?user='+this.$route.query.user).then(function (res){
 			console.log(res)
 			ths.listed = res.data
 		});
