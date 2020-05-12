@@ -16,11 +16,12 @@
 		<van-collapse v-model="activeNames" v-for="item in clist" v-bind:key="item.id">
 			<van-swipe-cell>
 			  <template #left>
-				<van-button square type="primary" text="安排" @click="gourl(item.user)" />
+				<van-button square type="primary" text="安排" @click="gourl(item.user)" style="height: 100%;" />
+				<van-button square type="info" text="查看" @click="see(item.user)" style="height: 100%;"/>
 			  </template>
 			  
 			  <van-collapse-item :title="item.name" :name="item.id" :value="'本月签到'+item.mnum+'天'" >
-				<van-cell-group v-for="tim in item.clocks" v-bind:key="tim.id">
+				<van-cell-group v-for="tim in item.clocks" v-bind:key="tim.id" size="large" >
 					
 					<van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }" style="margin-top: 0.3125rem;">
 							{{$moment(tim.time).format('YYYY-MM-DD HH:mm')}}
@@ -30,6 +31,7 @@
 					<van-field left-icon="location-o" :value="tim.addr" disabled />
 						
 				</van-cell-group>
+				<br />
 			  </van-collapse-item>
 			</van-swipe-cell>
 		</van-collapse>
@@ -66,6 +68,9 @@
 		},
 		gourl(user){
 			this.$router.push({path: '/Arrange',query:{name:user}});
+		},
+		see(user){
+			this.$router.push({path: '/Viewtasks',query:{user:user}});
 		},
 		confirm(value){
 			//确定按钮

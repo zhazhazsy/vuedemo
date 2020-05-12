@@ -9,6 +9,7 @@ import Admin from "../views/Admin.vue"
 import Arrange from "../components/Arrange.vue"
 import Loading from "../components/Loading.vue"
 import AdminError from "../components/AdminError.vue"
+import Viewtasks from "../components/Viewtasks.vue"
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/Clockcomplete",
     name: "Clockcomplete",
     component: Clockcomplete
+  },
+  {
+    path: "/Viewtasks",
+    name: "Viewtasks",
+    component: Viewtasks
   },
   {
     path: "/AdminError",

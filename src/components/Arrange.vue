@@ -41,7 +41,7 @@
 			</van-dropdown-item>
 		</van-dropdown-menu>
 		<br />
-		<van-button @click="clock" size="large" color="linear-gradient(to right, #7FFF00, #7CCD7C)" >安排</van-button>
+		<van-button @click="arrange" size="large" color="linear-gradient(to right, #7FFF00, #7CCD7C)" >安排</van-button>
 	</div>
 </template>
 
@@ -57,6 +57,12 @@ export default {
 		tack: {},
 		message: "",
 		newdate: "",
+		info: {
+			boss: "",
+			loser: "",
+			content: "",
+			time: ""
+		},
 	  };
     },
   methods: {
@@ -79,8 +85,18 @@ export default {
 		this.newdate = y+"-"+MM+"-"+d;
 		this.$refs.item.toggle();
 	},
-	clock(){
-		alert(this.message);
+	arrange(){
+		this.info.boss = "admin";
+		this.info.loser = this.$route.query.name;
+		this.info.content = this.message;
+		this.info.time = this.newdate;
+		
+		const ths = this;
+		  //请求后端数据
+		  this.axios.post('http://127.0.0.1:8081/task/insertTask',this.info).then(function (res){
+			  alert("安排任务成功");
+			  ths.$router.push({path: '/Viewtasks',query:{user:ths.$route.query.name}});
+		})
 	},
   },
   created() {

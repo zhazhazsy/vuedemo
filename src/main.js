@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import { Button,Tabbar,TabbarItem,Swipe,SwipeItem,List,Divider,Popup, Cell, CellGroup,Overlay,Field,Dialog,
 DatetimePicker,IndexBar,IndexAnchor,SwipeCell,ContactCard, ContactList, ContactEdit,Search,NoticeBar,
- PullRefresh,DropdownMenu, DropdownItem,Collapse, CollapseItem,NavBar,Loading,ActionSheet,Lazyload } from 'vant';
+ PullRefresh,DropdownMenu, DropdownItem,Collapse, CollapseItem,NavBar,Loading,ActionSheet,Lazyload,
+  Tab,Tabs} from 'vant';
 import axios from 'axios';
 import utils from './utils';   //获取url参数
 import moment from 'moment';
@@ -42,6 +43,8 @@ Vue.use(List);
 Vue.use(Loading);
 Vue.use(Lazyload);
 Vue.use(TabbarItem);
+Vue.use(Tab);
+Vue.use(Tabs);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Button);

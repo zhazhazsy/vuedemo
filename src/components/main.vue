@@ -19,11 +19,11 @@
 	<div class="body">
 		<van-divider content-position="left">今日任务</van-divider>
 		<van-cell title="今日未被安排任务" v-if="task == undefined || task.length == 0" />
-		<van-cell is-link @click="showPopup(it.content)" v-for="it in task">{{it.con}}</van-cell>
+		<van-cell is-link @click="showPopup(it.content)" v-for="it in task" v-bind:key="it.id">{{it.con}}..</van-cell>
 		<van-popup v-model="show" position="bottom" closeable
 		close-icon-position="top-right" :style="{ height: '30%' }">
 		<van-divider>任务详情</van-divider>
-		<br><br>{{thename}}
+		<br><p>{{thename}}</p>
 		</van-popup>
 	</div>
   </div>
@@ -56,7 +56,7 @@
 			//将当前this赋值给ths
 			const ths = this;
 			//请求后端数据
-			this.axios.get('http://47.113.112.177:8081/task/task?user='+acode).then(function (res){
+			this.axios.get('http://127.0.0.1:8081/task/task?user='+acode).then(function (res){
 				console.log(res)
 				ths.task = res.data
 			})
@@ -118,6 +118,10 @@
 	background-size: contain;
 	height: 150px;
 	background-position: 0;
+  }
+  p{
+	  word-wrap: break-word;
+	  padding: 0.9375rem;
   }
 </style>
 
