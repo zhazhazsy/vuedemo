@@ -13,7 +13,7 @@
 		  <van-contact-card type="edit" :name="con.name" :tel="con.phone" :editable="false" />
 		  <template #right>
 		    <van-button square type="info" class="button1" text="信息" />
-		    <van-button square type="primary" class="button2" text="电话" />
+		    <van-button square type="primary" class="button2" @click="tel(con.phone)" text="电话" />
 		  </template>
 		</van-swipe-cell>
 	</div>
@@ -41,6 +41,9 @@
 			  }else{
 				  Toast('输入不能为空');
 			  }
+			},
+			tel(te){
+				window.location.href = "tel://"+te;
 			},
 			onCancel() {
 			},
