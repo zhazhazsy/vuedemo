@@ -12,7 +12,7 @@
 		<van-swipe-cell v-for="con in contacts" v-bind:key="con.id">
 		  <van-contact-card type="edit" :name="con.name" :tel="con.phone" :editable="false" />
 		  <template #right>
-		    <van-button square type="info" class="button1" text="信息" />
+		    <van-button square type="info" class="button1" @click="sms(con.phone)" text="信息" />
 		    <van-button square type="primary" class="button2" @click="tel(con.phone)" text="电话" />
 		  </template>
 		</van-swipe-cell>
@@ -44,6 +44,9 @@
 			},
 			tel(te){
 				window.location.href = "tel://"+te;
+			},
+			sms(te){
+				window.location.href = "sms://"+te;
 			},
 			onCancel() {
 			},
