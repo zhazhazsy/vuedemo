@@ -43,10 +43,10 @@
 			  }
 			},
 			tel(te){
-				window.location.href = "tel://"+te;
+				window.location.href = "tel:"+te;
 			},
 			sms(te){
-				window.location.href = "sms://"+te;
+				window.location.href = "sms:"+te;
 			},
 			onCancel() {
 			},
