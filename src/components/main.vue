@@ -19,7 +19,16 @@
 	<div class="body">
 		<van-divider content-position="left">今日任务</van-divider>
 		<van-cell title="今日未被安排任务" v-if="task == undefined || task.length == 0" />
-		<van-cell is-link @click="showPopup(it.content)" v-for="it in task" v-bind:key="it.id">{{it.con}}..</van-cell>
+		<van-cell is-link @click="showPopup(it.content)" v-for="it in task" v-bind:key="it.id">{{it.con}}...</van-cell>
+		<van-popup v-model="show" position="bottom" closeable
+		close-icon-position="top-right" :style="{ height: '30%' }">
+		<van-divider>任务详情</van-divider>
+		<br><p>{{thename}}</p>
+		</van-popup>
+		
+		<van-divider content-position="left">待完成任务</van-divider>
+		<van-cell title="无待完成任务" v-if="tasked == undefined || tasked.length == 0" />
+		<van-cell is-link @click="showPopup(ited.content)" v-for="ited in tasked" v-bind:key="ited.id" :title="ited.con+'...'" :value="getDayandMon(ited.time)"/>
 		<van-popup v-model="show" position="bottom" closeable
 		close-icon-position="top-right" :style="{ height: '30%' }">
 		<van-divider>任务详情</van-divider>
@@ -35,6 +44,7 @@
 		data(){
 			return{
 				task:[],
+				tasked:[],
 				show: false,
 				thename : null,
 			}
@@ -45,6 +55,13 @@
 			  this.thename = name;
 		      this.show = true;
 		    },
+			getDayandMon(da){
+				let date = new Date(da);
+				let mymonth = date.getMonth() + 1;
+				let myweekday = date.getDate();
+				let d = mymonth +'-' + myweekday;
+				return d;
+			},
 		  },
 		created() {
 			//获取用户名
@@ -59,7 +76,12 @@
 			this.axios.get('http://47.113.112.177:8081/task/task?user='+acode).then(function (res){
 				console.log(res)
 				ths.task = res.data
-			})
+			});
+			
+			this.axios.get('http://47.113.112.177:8081/task/tasked?user='+acode).then(function (res){
+				console.log(res)
+				ths.tasked = res.data
+			});
 		},
 	}
 </script>
