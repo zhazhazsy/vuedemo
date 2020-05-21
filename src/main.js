@@ -3,9 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { Button,Tabbar,TabbarItem,Swipe,SwipeItem,List,Divider,Popup, Cell, CellGroup,Overlay,Field,Dialog,
-DatetimePicker,IndexBar,IndexAnchor,SwipeCell,ContactCard, ContactList, ContactEdit,Search,NoticeBar,
- PullRefresh,DropdownMenu, DropdownItem,Collapse, CollapseItem,NavBar,Loading,ActionSheet,Lazyload,
-  Tab,Tabs} from 'vant';
+	DatetimePicker,IndexBar,IndexAnchor,SwipeCell,ContactCard, ContactList, ContactEdit,Search,NoticeBar,
+	PullRefresh,DropdownMenu, DropdownItem,Collapse, CollapseItem,NavBar,Loading,ActionSheet,Lazyload,
+	Tab,Tabs,Step, Steps,Sku,Form,PasswordInput,NumberKeyboard,Icon} from 'vant';
 import axios from 'axios';
 import utils from './utils';   //获取url参数
 import moment from 'moment';
@@ -30,11 +30,14 @@ Vue.use(ContactList);
 Vue.use(ContactEdit);
 Vue.use(SwipeCell);
 Vue.use(IndexAnchor);
+Vue.use(Icon);
 Vue.use(Tabbar);
 Vue.use(DatetimePicker);
 Vue.use(Field);
 Vue.use(Dialog);
 Vue.use(Overlay);
+Vue.use(PasswordInput);
+Vue.use(NumberKeyboard);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Popup);
@@ -45,10 +48,14 @@ Vue.use(Lazyload);
 Vue.use(TabbarItem);
 Vue.use(Tab);
 Vue.use(Tabs);
+Vue.use(Sku);
 Vue.use(Swipe);
+Vue.use(Step);
+Vue.use(Steps);
 Vue.use(SwipeItem);
 Vue.use(Button);
 Vue.use(NavBar);
+Vue.use(Form);
 
 Vue.config.productionTip = false
 
