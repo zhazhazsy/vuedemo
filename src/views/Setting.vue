@@ -113,7 +113,7 @@
 			  const ths = this;
 			  //请求后端数据,保证同一个session
 			  this.axios.defaults.withCredentials = true;
-			  this.axios.get('http://192.168.31.17:8081/user/Sms?newphone='+this.value1+'&user='+this.userid).then(function (res){
+			  this.axios.get('http://47.113.112.177:8081/user/Sms?newphone='+this.value1+'&user='+this.userid).then(function (res){
 			  	ths.active = res.data;
 				ths.value1 = "";
 			  });
@@ -129,7 +129,7 @@
 			  const ths = this;
 			  //请求后端数据,保证同一个session
 			  this.axios.defaults.withCredentials = true;
-			  this.axios.get('http://192.168.31.17:8081/user/Verification?ver='+this.value2+'&user='+this.userid).then(function (res){
+			  this.axios.get('http://47.113.112.177:8081/user/Verification?ver='+this.value2+'&user='+this.userid).then(function (res){
 				  if(res.data == 2){
 					  ths.value2 = '';
 					  ths.active = res.data;
