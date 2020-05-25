@@ -10,6 +10,9 @@ import Arrange from "../components/Arrange.vue"
 import Loading from "../components/Loading.vue"
 import AdminError from "../components/AdminError.vue"
 import Viewtasks from "../components/Viewtasks.vue"
+import Proposal from "../components/Proposal.vue"
+import success from "../components/success.vue"
+import Privacy from "../components/Privacy.vue"
 
 Vue.use(VueRouter);
 
@@ -18,6 +21,21 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/success",
+    name: "success",
+    component: success
+  },
+  {
+    path: "/Privacy",
+    name: "Privacy",
+    component: Privacy
+  },
+  {
+    path: "/Proposal",
+    name: "Proposal",
+    component: Proposal
   },
   {
     path: "/Clockcomplete",

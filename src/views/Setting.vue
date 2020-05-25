@@ -66,9 +66,25 @@
 		</van-cell-group>
 		<br />
 		<van-cell-group>
-		  <van-cell title="关于我们" is-link />
-		  <van-cell title="使用须知" is-link />
-		  <van-cell title="反馈建议" is-link />
+		  <van-overlay :show="show2">
+		    <div class="wrapper" @click="show2 = false" >
+				<div class="block" @click.stop style="text-align: left;" >
+					<van-icon name="close" style="margin-top: 0.625rem;float: right;margin-right: 0.9375rem;width: 0.9375rem;" @click="show2 = false" />
+					<br />
+					<h2 style="margin-left: 0.9375rem;">关于作者</h2>
+					<p> 再牛逼的梦想也抵不住傻逼似的坚持！</p>
+					<p> 本APP是作者第一次用混合开发的方式开发的APP，存在很多不足是一定的，但每一次开发都是学习都过程，慢慢改善自己那蹩脚的代码，一次次跨过那一个个坑，这不都是令人开心的事吗。</p>
+					<h2 style="margin-left: 0.9375rem;">联系方式</h2>
+					<p>欢迎指出我的不足，也可以谈谈诗和远方，同时也可以聊聊眼前苟且...</p>
+					<p>邮箱：
+						 <span style="color: #0570DB;" @click="onCopy">1006942332@qq.com</span>
+					</p>
+				</div>
+		    </div>
+		  </van-overlay>
+		  <van-cell title="关于我们" is-link @click="show2 = true" />
+		  <van-cell title="使用须知" is-link to="/Privacy" />
+		  <van-cell title="反馈建议" is-link to="/Proposal" />
 		</van-cell-group>
 	</div>
 </template>
@@ -93,10 +109,19 @@
 			  loading:false,
 			  showKeyboard: true,
 			  errorInfo: '',
+			  show2: false,
 		  }
 	    },
 	  methods: {
-	  	//点击任务显示详情
+		  onCopy () {
+		    let message = '1006942332@qq.com';
+		    this.$copyText(message).then(res => {
+			  this.$notify({ type: 'success', message: '复制到剪切板' });
+		    }).catch(err => {
+			  this.$notify({ type: 'danger', message: '不允许操作' });
+		    })
+		  },
+	  	  //点击任务显示详情
 	      showPopup() {
 	        this.show = true;
 	      },
@@ -162,5 +187,17 @@
 <style>
 	.content {
 	  padding: 16px 16px 160px;
+	}
+	.wrapper {
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   height: 100%;
+	}
+	
+	.block {
+	  width: 90%;
+	  height: 80%;
+	  background-color: #fff;
 	}
 </style>

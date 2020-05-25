@@ -4,7 +4,7 @@
 	<!-- 如果组件路由为location则不显示 -->
 	<div v-show="!(path ==='/location'||path == '/Clockcomplete' || path == '/Viewtasks'||
 	 path == '/Admin' || path == '/admin' || path == '/Arrange' || path == '/Loading' || 
-	 path == '/AdminError') ">
+	 path == '/AdminError' || path == '/Privacy') ">
 		<van-tabbar v-model="active" class="active">
 		<van-tabbar-item icon="home-o" to="/"></van-tabbar-item>
 		<van-tabbar-item icon="underway-o" to="/about"></van-tabbar-item>
