@@ -6,16 +6,20 @@
 		  left-arrow
 		  @click-left="onClickLeft"
 		/>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+		<van-swipe style="height: 150px;" :autoplay="3000" indicator-color="white" vertical>
+		  <van-swipe-item class="lun1">
+		  	<img src="../assets/lunbo/img001.png" style="width: 100%;" />
+		  </van-swipe-item>
+		  <van-swipe-item class="lun2">
+		  	<img src="../assets/lunbo/img002.png" style="width: 100%;" />
+		  </van-swipe-item>
+		  <van-swipe-item class="lun3">
+		  	<img src="../assets/lunbo/img003.png" style="width: 100%;" />
+		  </van-swipe-item>
+		  <van-swipe-item class="lun4">
+		  	<img src="../assets/lunbo/img004.png" style="width: 100%;" />
+		  </van-swipe-item>
+		</van-swipe>
 		<van-cell-group>
 		  <van-field label="姓名:" :value="tack.name" disabled />
 		  <van-field
@@ -117,4 +121,5 @@ export default {
 </script>
 
 <style>
+	
 </style>

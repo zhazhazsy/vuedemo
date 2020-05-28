@@ -7,11 +7,11 @@
 		  fixed
 		  @click-left="onClickLeft"
 		/>
-		<van-skeleton title :row="25" :loading="loading" style="background-color: #ffffff;">
+		<br />
+		<br />
+		<br />
+		<van-skeleton title :row="30" :loading="loading" style="background-color: #ffffff;">
 		  <div style="text-align: left;background-color: #ffffff;">
-			  <br />
-			  <br />
-			  <br />
 			  <h2 style="margin: 1.5rem;">用户须知</h2>
 			  <p>
 				  本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、
